@@ -111,10 +111,10 @@ class Expectation(object):
           expected value.
         """
 
-        self.test.assertEqual(expected, self.value)
+        self.test.assertEqual(expected, self.value, message)
         return self
 
-    def to_not_equal(self, expected):
+    def to_not_equal(self, expected, message=None):
         """
         Public: Asserts that the observed value is not equal to the given
         value.
@@ -128,10 +128,10 @@ class Expectation(object):
           expected value.
         """
 
-        self.test.assertNotEqual(expected, self.value)
+        self.test.assertNotEqual(expected, self.value, message)
         return self
 
-    def to_be(self, expected):
+    def to_be(self, expected, message=None):
         """
         Public: Asserts that the observed value is the same object as the
         given value.
@@ -145,10 +145,10 @@ class Expectation(object):
           expected value.
         """
 
-        self.test.assertIs(expected, self.value)
+        self.test.assertIs(expected, self.value, message)
         return self
 
-    def to_not_be(self, expected):
+    def to_not_be(self, expected, message=None):
         """
         Public: Asserts that the observed value isn't the same object as
         the given value.
@@ -162,10 +162,10 @@ class Expectation(object):
           expected value.
         """
 
-        self.test.assertIsNot(expected, self.value)
+        self.test.assertIsNot(expected, self.value, message)
         return self
 
-    def to_be_true(self):
+    def to_be_true(self, message=None):
         """
         Public: Asserts that the observed value is considered to be true
         by Python.
@@ -178,10 +178,10 @@ class Expectation(object):
           value in Python.
         """
 
-        self.test.assertTrue(self.value)
+        self.test.assertTrue(self.value, message)
         return self
 
-    def to_be_false(self):
+    def to_be_false(self, message=None):
         """
         Public: Asserts that the observed value is considered to be false
         by Python.
@@ -194,10 +194,10 @@ class Expectation(object):
           value in Python.
         """
 
-        self.test.assertFalse(self.value)
+        self.test.assertFalse(self.value, message)
         return self
 
-    def to_be_none(self):
+    def to_be_none(self, message=None):
         """
         Public: Asserts that the observed value `is None`.
 
@@ -210,10 +210,10 @@ class Expectation(object):
         Raises AssertionError if the observed value `is not None`.
         """
 
-        self.test.assertIsNone(self.value)
+        self.test.assertIsNone(self.value, message)
         return self
 
-    def to_not_be_none(self):
+    def to_not_be_none(self, message=None):
         """
         Public: Asserts that the observed value `is not None`.
 
@@ -226,10 +226,10 @@ class Expectation(object):
         Raises AssertionError if the observed value `is None`.
         """
 
-        self.test.assertIsNotNone(self.value)
+        self.test.assertIsNotNone(self.value, message)
         return self
 
-    def to_contain(self, expected):
+    def to_contain(self, expected, message=None):
         """
         Public: Asserts that the given value is `in` the observed value.
 
@@ -242,10 +242,10 @@ class Expectation(object):
           value.
         """
 
-        self.test.assertIn(expected, self.value)
+        self.test.assertIn(expected, self.value, message)
         return self
 
-    def to_not_contain(self, expected):
+    def to_not_contain(self, expected, message=None):
         """
         Public: Asserts that the given value is `not in` the observed value.
 
@@ -258,10 +258,10 @@ class Expectation(object):
           value.
         """
 
-        self.test.assertNotIn(expected, self.value)
+        self.test.assertNotIn(expected, self.value, message)
         return self
 
-    def to_be_a(self, expected_type):
+    def to_be_a(self, expected_type, message=None):
         """
         Public: Asserts that the observed value is an instance of the given
         type.
@@ -276,12 +276,12 @@ class Expectation(object):
           the given type.
         """
 
-        self.test.assertIsInstance(self.value, expected_type)
+        self.test.assertIsInstance(self.value, expected_type, message)
         return self
 
     to_be_an = to_be_a
 
-    def to_not_be_a(self, expected_type):
+    def to_not_be_a(self, expected_type, message=None):
         """
         Public: Asserts that the observed value is not an instance of the
         given type.
@@ -296,7 +296,7 @@ class Expectation(object):
           the given type.
         """
 
-        self.test.assertNotIsInstance(self.value, expected_type)
+        self.test.assertNotIsInstance(self.value, expected_type, message)
         return self
 
     to_not_be_an = to_not_be_a

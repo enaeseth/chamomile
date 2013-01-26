@@ -101,5 +101,13 @@ class TestTest(chamomile.Test):
             with self.expect(Exception):
                 pass
 
+    def test_custom_message(self):
+        message = 'the tuba is made of brass'
+
+        try:
+            self.expect(0).to_equal(1, message)
+        except AssertionError, e:
+            self.expect(str(e)).to_contain(message)
+
 if __name__ == '__main__':
     chamomile.main()
