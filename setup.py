@@ -20,7 +20,7 @@ except (AttributeError, ImportError):
 
 setup(
     name='chamomile',
-    version='1.0.0',
+    version='1.0.1',
     description='Jasmine-style assertions for unittest',
     url='https://github.com/enaeseth/chamomile',
     author='Eric Naeseth',
