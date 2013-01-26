@@ -1,3 +1,5 @@
+from __future__ import with_statement
+
 """
 Test Chamomile tests themselves. A bit meta.
 """
