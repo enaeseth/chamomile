@@ -4,6 +4,8 @@ from __future__ import with_statement
 Test Chamomile tests themselves. A bit meta.
 """
 
+import sys
+
 import chamomile
 
 class TestTest(chamomile.Test):
@@ -106,8 +108,9 @@ class TestTest(chamomile.Test):
 
         try:
             self.expect(0).to_equal(1, message)
-        except AssertionError, e:
-            self.expect(str(e)).to_contain(message)
+        except AssertionError:
+            error = sys.exc_info()[1]
+            self.expect(str(error)).to_contain(message)
 
 if __name__ == '__main__':
     chamomile.main()
